@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import sys
 
 def validmerge(m, x, y):
     if ((m == x and len(y) < 1)
@@ -24,6 +25,8 @@ def validmerge(m, x, y):
         return False
 
 
+if __name__ == "__main__":
+    sys.exit(0 if validmerge(*sys.argv[1:]) else 1)
 
 
 
