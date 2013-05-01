@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+
+import random
 import sys
 
 def validmerge(m, x, y):
@@ -67,6 +69,15 @@ def __test__():
         [["314159265", ["34525", "1196"]], True],
 
         ]
+
+    printable_chars = [chr(i) for i in range(65, 65 + (2 * 26))]
+    for i in range(50):
+        length = random.randint(1, 100)
+        test_string = "".join(random.choice(printable_chars) for j in range(length))
+        test_args = ["", ""]
+        for c in test_string:
+            test_args[0 if random.random() < 0.5 else 1] += c
+        TESTS.append([[test_string, test_args], True])
 
     passed = False
     for test_args, expected_result in TESTS:
